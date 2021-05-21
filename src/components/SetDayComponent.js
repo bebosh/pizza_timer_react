@@ -17,8 +17,6 @@ const SetDay = () => {
   };
 
   return (
-    
-      
     <div>
     <h2>Select next pizza time !</h2>
       <form onSubmit={handleSubmit}>
