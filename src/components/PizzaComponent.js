@@ -1,20 +1,18 @@
+import "../pizza.css";
 
-import '../pizza.css';
-
-const Pizza = () => {
+const Pizza = (props) => {
   var dom_content = [];
-  for (var i = 0; i < 3; i++) {
-      dom_content.push(
-          (
-          <li key={i}><div className="slice"></div></li>
-          )
-      );
+  var d = new Date(props.day);
+  var n = d.getDay();
+
+  for (var i = 0; i < n; i++) {
+    dom_content.push(
+      <li key={i}>
+        <div className="slice"></div>
+      </li>
+    );
   }
-  return (
-       <ul className="sliceWrapper">
-          {dom_content}
-      </ul>
-  )
-}
- 
+  return <ul className="sliceWrapper">{dom_content}</ul>;
+};
+
 export default Pizza;

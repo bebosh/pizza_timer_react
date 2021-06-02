@@ -1,14 +1,12 @@
+import "./App.css";
+import PizzaTimer from "./components/PizzaTimerContainer";
 
-import './App.css';
-import Pizza from './components/PizzaComponent';
-import PizzaTimer from './PizzaTimerContainer';
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-       <h3>Pizza Party countdown</h3> 
-        < Pizza />
-       < PizzaTimer />
+        <h3>Pizza Party countdown</h3>
+        <PizzaTimer />
       </header>
     </div>
   );

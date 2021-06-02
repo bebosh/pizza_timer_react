@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-const SetDay = () => {
+const SetDay = (props) => {
   const [day, setDay] = useState("1");
   const [hour, setHour] = useState("");
- 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,11 +13,12 @@ const SetDay = () => {
     localStorage.setItem("day", day);
     localStorage.setItem("hour", setHours);
     localStorage.setItem("minutes", setMinutes);
+    props.showSetDay("timer");
   };
 
   return (
     <div>
-    <h2>Select next pizza time !</h2>
+      <h2>Select next pizza time !</h2>
       <form onSubmit={handleSubmit}>
         <span className="selection">Select a day: </span>
         <select
@@ -26,13 +26,13 @@ const SetDay = () => {
           onChange={(e) => setDay(e.target.value)}
           name="Days"
         >
-          <option value ="1">Monday</option>
-          <option value ="2">Tuesday</option>
-          <option value ="3">Wednesday</option>
-          <option value ="4">Thursday</option>
-          <option value ="5">Friday</option>
-          <option value ="6">Saturday</option>
-          <option value ="0">Sunday</option>
+          <option value="1">Monday</option>
+          <option value="2">Tuesday</option>
+          <option value="3">Wednesday</option>
+          <option value="4">Thursday</option>
+          <option value="5">Friday</option>
+          <option value="6">Saturday</option>
+          <option value="0">Sunday</option>
         </select>
         <span className="selection">Select time: </span>
         <input
@@ -40,8 +40,9 @@ const SetDay = () => {
           type="time"
           id="appt"
           name="appt"
-        ></input> 
-          <button>Set date</button>
+          required
+        ></input>
+        <button>Set date</button>
       </form>
     </div>
   );
