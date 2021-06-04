@@ -1,12 +1,13 @@
 .sliceWrapper {
   position: relative;
+  margin: auto;
   padding: 0;
   width: 200px;
   height: 200px;
   border-radius: 50%;
   list-style: none;
   overflow: hidden;
-  background-image: url(./pizza.svg);
+  background-image: url(./img&sound/pizza.svg);
   background-position: 0;
   background-size: 200px;
 }
@@ -28,15 +29,15 @@
   transform-origin: 0% 100%;
 }
 
-.sliceWrapper li:first-child {
+.sliceWrapper li:nth-child(7) {
   transform: rotate(0deg) skewY(142deg);
 }
 
-.sliceWrapper li:nth-child(2) {
+.sliceWrapper li:nth-child(6) {
   transform: rotate(51deg) skewY(142deg);
 }
 
-.sliceWrapper li:nth-child(3) {
+.sliceWrapper li:nth-child(5) {
   transform: rotate(102deg) skewY(142deg);
 }
 
@@ -44,15 +45,15 @@
   transform: rotate(153deg) skewY(142deg);
 }
 
-.sliceWrapper li:nth-child(5) {
+.sliceWrapper li:nth-child(3) {
   transform: rotate(204deg) skewY(142deg);
 }
 
-.sliceWrapper li:nth-child(6) {
+.sliceWrapper li:nth-child(2) {
   transform: rotate(256deg) skewY(142deg);
 }
 
-.sliceWrapper li:nth-child(7) {
+.sliceWrapper li:first-child {
   transform: rotate(308deg) skewY(142deg);
 }
 

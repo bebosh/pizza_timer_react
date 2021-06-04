@@ -30,20 +30,22 @@ const Timer = (props) => {
     };
   });
 
+
   const handleReset = (e) => {
     localStorage.removeItem("day");
     localStorage.removeItem("hour");
     localStorage.removeItem("minutes");
     props.showSetDay("setDay");
-    //window.location.reload();
   };
 
   return (
     <div>
-      <h1>
-        {nextDay} / {nextHours} / {nextMinutes} / {nextSeconds}{" "}
-      </h1>
+      <h3>
+        Days: {nextDay} - Hours: {nextHours} - Min: {nextMinutes} - Sec: {nextSeconds}{" "}
+      </h3>
+      <div className="buttonCenterReset">
       <button onClick={handleReset}>Reset</button>
+      </div>
     </div>
   );
 };

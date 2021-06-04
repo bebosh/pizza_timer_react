@@ -20,7 +20,8 @@ const SetDay = (props) => {
     <div>
       <h2>Select next pizza time !</h2>
       <form onSubmit={handleSubmit}>
-        <span className="selection">Select a day: </span>
+        <div className="selectionBlock">
+        <span className="selection">Select day : </span>
         <select
           value={day}
           onChange={(e) => setDay(e.target.value)}
@@ -34,15 +35,18 @@ const SetDay = (props) => {
           <option value="6">Saturday</option>
           <option value="0">Sunday</option>
         </select>
-        <span className="selection">Select time: </span>
+        <span className="selection">Select time :</span>
         <input
           onChange={(e) => setHour(e.target.value)}
           type="time"
           id="appt"
           name="appt"
-          required
-        ></input>
-        <button>Set date</button>
+          required>
+          </input>
+        </div>
+        <div className="buttonCenter" >
+        <button >Set date</button>
+        </div>
       </form>
     </div>
   );

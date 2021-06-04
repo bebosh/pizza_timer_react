@@ -21,18 +21,44 @@
   color: #61dafb;
 }
 
+.selectionBlock{
+  margin: 10px 33vw;
+  display: inline-flex;
+}
 
-button, input, select{
-  margin: 0 10vh;
-  padding: 5px;
-  width: 100px;
+
+ input, select{
+  margin: 0 5vmin;
+  width: 150px;
   height: 30px;
   border-radius: 10px;
   align-items: center;
   text-transform: uppercase;
 }
 
-h2{
+button{
+  width: 150px;
+  height: 30px;
+  border-radius: 10px;
+  align-items: center;
+  text-transform: uppercase;
+}
+.buttonCenter{
+  margin: 0 47%;
+}
+
+.buttonCenterReset{
+  margin: 0 32%;
+}
+
+h2, h3{
 text-align: center;
 }
 
+span.selection{
+  width: 120px;
+}
+
+#iframeAudio{
+  display: none;
+}

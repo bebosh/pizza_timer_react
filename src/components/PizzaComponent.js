@@ -2,10 +2,11 @@ import "../pizza.css";
 
 const Pizza = (props) => {
   var dom_content = [];
-  var d = new Date(props.day);
-  var n = d.getDay();
-
-  for (var i = 0; i < n; i++) {
+  var today = new Date().getDay();
+  var targetDay = props.day +1
+  var dayLeft = targetDay-today; 
+  console.log("today " + today + " targetDay " + targetDay + " dayLeft " + dayLeft);
+  for (var i = 0; i < dayLeft; i++) {
     dom_content.push(
       <li key={i}>
         <div className="slice"></div>
