@@ -1,15 +1,33 @@
 import { useEffect, useState } from "react";
+import partySound from '../img&sound/happy-crowd-cheer.wav';
 
 const Timer = (props) => {
   const [nextDay, setNextDay] = useState(0);
   const [nextHours, setNextHours] = useState(0);
   const [nextMinutes, setNextMinutes] = useState(0);
   const [nextSeconds, setNextSeconds] = useState(0);
+  const [partyStarted, setPartyStarted] = useState("");
+  const [party, setParty] = useState("");
+
+  
 
   useEffect(() => {
+    const currentTime = new Date().getTime();
+    const finalDate = props.day.targetDate;
+    const finalTime = finalDate.getTime();
+    const timeZero =  finalTime - currentTime;
+
+    if(timeZero < 1000){
+      setPartyStarted("partyStarted");
+      setParty("party");
+    }
+    if( timeZero < 0){
+      setPartyStarted("partyStarted");
+      setParty("");
+    }
+
+
     const interval = setInterval(() => {
-      const currentTime = new Date().getTime();
-      const finalDate = props.day;
       let timeLeft = finalDate - currentTime;
       let nextDay = Math.floor(timeLeft / (24 * 60 * 60 * 1000));
       let daysms = timeLeft % (24 * 60 * 60 * 1000);
@@ -30,24 +48,42 @@ const Timer = (props) => {
     };
   });
 
-
-  const handleReset = (e) => {
+  const handleReset = () => {
     localStorage.removeItem("day");
     localStorage.removeItem("hour");
     localStorage.removeItem("minutes");
     props.showSetDay("setDay");
   };
 
+if(partyStarted === "partyStarted"){
+  if (party === "party"){
+  const audio = new Audio(partySound);
+      audio.volume = 0.2;
+      audio.play();
+  }
   return (
     <div>
-      <h3>
-        Days: {nextDay} - Hours: {nextHours} - Min: {nextMinutes} - Sec: {nextSeconds}{" "}
-      </h3>
+      <h1>
+        PARTY MODE ON !!!
+      </h1>
       <div className="buttonCenterReset">
-      <button onClick={handleReset}>Reset</button>
+        <button onClick={handleReset}>Reset</button>
       </div>
     </div>
   );
+}else{
+  return (
+    <div>
+      <h3>
+        Days: {nextDay} - Hours: {nextHours} - Min: {nextMinutes} - Sec:{" "}
+        {nextSeconds}{" "}
+      </h3>
+      <div className="buttonCenterReset">
+        <button onClick={handleReset}>Reset</button>
+      </div>
+    </div>
+  );
+}
 };
 
 export default Timer;
