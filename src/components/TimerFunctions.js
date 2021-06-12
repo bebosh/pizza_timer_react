@@ -12,7 +12,13 @@ const nextDay = (now, hour, minutes, targetDay) => {
     0,
     0
   );
+  /* if the targetDate is les or equal than the actual date, 
+  add 7 days to go to next week automatically*/
+  if(targetDate <= now){
+    targetDate.setDate(targetDate.getDate() + 7);
+  }
   return {targetDate};
 };
+
 
 export {nextDay};

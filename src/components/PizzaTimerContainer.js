@@ -21,7 +21,6 @@ const PizzaTimer = () => {
   }
 
   var targetDay = now.getDate() + ((Number(day) + (7 - now.getDay())) % 7);
-  
   const showSetDay = (showComponent) => {
     localStorage.setItem("showComponent", showComponent);
     var temp = localStorage.getItem("showComponent");
